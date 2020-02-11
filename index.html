@@ -1,0 +1,134 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+    ///get number 1-3 to represent computer's decision in play function
+    function chooseRandom(){
+        return (Math.floor(Math.random()*3)+1);
+    }
+
+    ///convert number into computer choice
+    function computerPlay(){
+
+        let computerSelection = chooseRandom();
+
+        if(computerSelection === 1){
+            return "Rock";
+
+            } else if(computerSelection === 2){
+            return "Paper";
+
+            } else if (computerSelection === 3){
+            return "Scissors";
+
+            }
+    }
+    ///convert computer pick into upper case
+    function compCase(){
+        let compPick = computerPlay();
+        let compCase = compPick.toUpperCase();
+        return compCase;
+    }
+
+    ///player prompted for thier choice and converted to uppercase lettering
+    function playerSelection(){
+        let playerPick = prompt("Choose Rock, Paper or Scissors.")
+        let playCase = playerPick.toUpperCase();
+        return playCase;
+    }
+
+
+    ///variables to keep score
+    var playerScore = 0;
+    var computerScore = 0;
+
+    ///play one round of RPS
+    function playRound(playerChoice, computerChoice){
+
+
+        if(playerChoice == computerChoice){
+            return "Its a tie! Darn it.";
+
+        }else if(playerChoice == "ROCK" && computerChoice == "SCISSORS"){
+             playerScore = playerScore + 1;
+            return "You Win! Rock beats Scissors.";
+            
+
+        } else if (playerChoice == "PAPER" && computerChoice == "ROCK"){
+            playerScore = playerScore + 1;
+            return "You Win! Paper beats Rock.";
+            
+
+        } else if (playerChoice == "SCISSORS" && computerChoice == "PAPER"){
+            playerScore = playerScore + 1;
+            return "You Win! Scissors beats Paper.";
+            
+
+        } else if (computerChoice == "ROCK" && playerChoice == "SCISSORS"){
+            computerScore = computerScore + 1;
+            return "You lose! Rock beats Scissors.";
+            
+
+        } else if (computerChoice == "PAPER" && playerChoice == "ROCK"){
+            computerScore = computerScore + 1;
+            return "You lose! Rock beast Paper.";
+            
+
+        } else if (computerChoice == "SCISSORS" && playerChoice == "PAPER"){
+            computerScore = computerScore + 1;
+            return "You lose! Scissors beats Paper.";
+            
+
+        }
+    }
+
+    function game(){
+
+
+        ///Round 1
+        let playerChoice = playerSelection();
+        let computerChoice = compCase();
+            console.log(playRound(playerChoice, computerChoice));
+            console.log(playerScore, computerScore);
+
+        ///round2
+        playerChoice = playerSelection();
+        computerChoice = compCase();
+            console.log(playRound(playerChoice, computerChoice));
+            console.log(playerScore, computerScore);
+
+        ///round3
+        playerChoice = playerSelection();
+        computerChoice = compCase();
+            console.log(playRound(playerChoice, computerChoice));
+            console.log(playerScore, computerScore);
+
+        ///round4
+        playerChoice = playerSelection();
+        computerChoice = compCase();
+            console.log(playRound(playerChoice, computerChoice));
+            console.log(playerScore, computerScore);
+
+        ///round5
+        playerChoice = playerSelection();
+        computerChoice = compCase();
+            console.log(playRound(playerChoice, computerChoice));
+            console.log(playerScore, computerScore);
+
+        ///display the winner
+        if( playerScore > computerScore){
+            console.log("all you do is win win win no matter what");
+        }else if(computerScore > playerScore){
+            console.log(" #deff not KOBE");
+        }else if(playerScore === computerScore){
+            console.log(" dont expect a participation trophy ");
+        }
+    }
+
+    game();
+
+
+</script>
+</body>
+</html>
